@@ -1,0 +1,43 @@
+﻿body {
+    padding-top:0px;
+}
+
+.header{
+    height:112px;
+
+}
+
+.logo_img{
+    padding: 22px 0;
+}
+
+.nav_1, .search{
+    padding: 31px 0;
+}
+
+.nav_1 ul{
+    list-style-type:none;
+    text-align: center;
+}
+
+.nav_1 ul li{
+    float:left;
+}
+
+.nav_1 ul li ul li{
+    float: none;
+}
+
+.nav_1 li a{
+    color:#808080;
+    font-weight: bold;
+}
+
+.nav_1 li a:hover{
+    color:#ffffff;
+    background-color:#e89e2c;
+}
+
+.nav_1 .tb{
+    border-top: 4px solid #808080;
+}
