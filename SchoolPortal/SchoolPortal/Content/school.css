@@ -82,3 +82,8 @@
 .link a{
     color:#ffffff;
 }
+
+/*登录模态框*/
+.modal-sm{
+    width:300px;
+}
