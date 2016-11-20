@@ -27,14 +27,14 @@
                             <li>@Html.ActionLink("主页", "Index", "Home")</li>
                             <li>@Html.ActionLink("学校简介", "About", "Home")</li>
                             <li>@Html.ActionLink("教学工作", "Contact", "Home")</li>
-                            <li>@Html.ActionLink("学院新闻", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("专业设置", "Contact", "Home")</li>
                             <li>@Html.ActionLink("学生园地", "Contact", "Home")</li>
                             <li role="presentation" class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">学生园地 <span class="tb caret "></span></a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">学院新闻 <span class="tb caret "></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
-                                    <li>@Html.ActionLink("关于", "About", "Home")</li>
-                                    <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>                                    
+                                    <li>@Html.ActionLink("通知公告", "Index", "Home")</li>
+                                    <li>@Html.ActionLink("科教动态", "About", "Home")</li>
+                                    <li>@Html.ActionLink("综合新闻", "Contact", "Home")</li>                                    
                                 </ul>
                             </li>
                         </ul>
@@ -56,9 +56,8 @@
             </div>
         </div>
     </div>
-
-
-    <div class="navbar navbar-inverse">
+    
+    @*<div class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -78,16 +77,63 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+*@
+    <div class="container-fluid">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
+    </div>
+    <div class="container-fluid ">                       
+        <footer class="footer_css">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div>
+                            <img src="~/Content/img/fl2.jpg" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="title">友情链接</div>                        
+                        <div class="link">
+                            <a href="#">广西大学</a>
+                        </div>
+                        <div class="link">
+                            <a href="#">桂林电子科技大学</a>
+                        </div>
+                        <div class="link">
+                            <a href="#">桂林理工大学</a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="title">社交媒体</div>
+                        <div class="link">微博</div>
+                        <div class="link">微信</div>
+                        <div class="link">人人网</div>
+                    </div>                    
+                    <div class="col-md-3">
+                        <div class="title">联系</div>
+                        <div class="link">地址：广西桂林</div>
+                        <div class="link">电话：8888 8888 88</div>
+                        <div class="link">Email：guil@guil.com</div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <p>Copyright&copy; @DateTime.Now.Year - 桂林大学版权所有</p>
+                </div>
+            </div>
+            
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script>
+        $(".carousel").carousel({
+            interval:4000
+        })
+    </script>
 </body>
 </html>
