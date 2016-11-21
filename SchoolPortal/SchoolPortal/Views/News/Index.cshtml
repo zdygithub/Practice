@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var newsList = ViewBag.Information as List<Information>;
+}
+
+<h2>新闻列表</h2>
+<ol>
+    @foreach(var item in newsList)
+    {
+        <li>
+            <a>@item.Subject</a>
+        </li>
+    }
+</ol>
+
