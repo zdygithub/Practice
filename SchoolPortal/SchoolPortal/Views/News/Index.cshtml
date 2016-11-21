@@ -23,7 +23,7 @@
                 @foreach (var item in newsList)
                 {
                     <tr>
-                        <td><a style="color:#000000">@item.Subject</a></td>
+                        <td><a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
                         <td>@item.DataCreated</td>
                     </tr>
                 }

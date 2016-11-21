@@ -33,5 +33,15 @@ namespace SchoolPortal.Controllers
             
             return View();
         }
+
+        public ActionResult Show(int id)
+        {
+            var db = new NewsDatabase();
+            var article = db.Informations.First(o => o.Id == id);
+
+            ViewData.Model = article;
+
+            return View();
+        }
     }
 }

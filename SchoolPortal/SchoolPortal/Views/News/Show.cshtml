@@ -1,0 +1,20 @@
+﻿@model Information
+@{
+    ViewBag.Title = "Show";
+}
+
+<div class="container">
+    <div class="row">
+        <h2 class="text-center">@Model.Subject</h2>
+        <p class="text-center">发表时间：@Model.DataCreated</p>
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <pre>@Model.Body</pre>
+        </div>  
+    </div>
+    <div class="row" style="height:100px">
+
+    </div>
+
+</div>
+
