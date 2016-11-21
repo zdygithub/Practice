@@ -1,16 +1,40 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    var newsList = ViewBag.Information as List<Information>;
+    var newsList = ViewBag.Informations as List<Information>;
 }
 
-<h2>新闻列表</h2>
-<ol>
-    @foreach(var item in newsList)
-    {
-        <li>
-            <a>@item.Subject</a>
-        </li>
-    }
-</ol>
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-4">
+            <img src="~/Content/img/18zqh.gif" style="width:314px; height:116px" />
+        </div>
+        <div class="col-md-8">
+            @if (ViewBag.search != null)
+            {
+                <h2>搜索：@ViewBag.search</h2>
+            }
+            else
+            {
+                <h2>@ViewBag.id</h2>
+            }
+            <table class="table table-hover">
+                @foreach (var item in newsList)
+                {
+                    <tr>
+                        <td><a style="color:#000000">@item.Subject</a></td>
+                        <td>@item.DataCreated</td>
+                    </tr>
+                }
+            </table>
+        </div>
+        
+    </div>
+    <div class="row" style="height:100px">
+
+    </div>
+    
+</div>
+
 

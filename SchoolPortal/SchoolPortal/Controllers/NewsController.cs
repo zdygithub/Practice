@@ -9,14 +9,28 @@ namespace SchoolPortal.Controllers
     public class NewsController : Controller
     {
         // GET: News
-        public ActionResult Index()
+        public ActionResult Index(string id,string search)
         {
             var db = new NewsDatabase();
             db.Database.CreateIfNotExists();//创建数据库
+            var lst = db.Informations.AsQueryable();
 
-            var lst = db.Informations.OrderByDescending(o => o.Id).ToList(); //进行降序排序
-            ViewBag.Information = lst;
+            if(!string.IsNullOrWhiteSpace(id) && string.IsNullOrWhiteSpace(search))
+            {
+                
+               lst = lst.Where(o => o.Type.Contains(id)); //导航栏-不同种类的新闻列表
+                
+            }
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                lst = lst.Where(o => o.Body.Contains(search)); //搜索功能
+            }
 
+            ViewBag.Informations = lst.OrderByDescending(o => o.Id).ToList(); //进行降序排序
+
+            ViewBag.id = id;
+            ViewBag.search = search;
+            
             return View();
         }
     }

@@ -32,20 +32,20 @@
                             <li role="presentation" class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">学院新闻 <span class="tb caret "></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>@Html.ActionLink("通知公告", "Index", "Home")</li>
-                                    <li>@Html.ActionLink("科教动态", "About", "Home")</li>
-                                    <li>@Html.ActionLink("综合新闻", "Contact", "Home")</li>                                    
+                                    <li>@Html.ActionLink("通知公告", "Index", "News", new { id = "通知公告" }, new { })</li>
+                                    <li>@Html.ActionLink("科教动态", "Index", "News", new { id = "科教动态" }, new { })</li>
+                                    <li>@Html.ActionLink("综合新闻", "Index", "News", new { id = "综合新闻" }, new { })</li>                                    
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <form>
+                    <form method="get" action="@Url.Action("Index", "News")">
                         <div class="form-group">
                             <div class="search ">
                                 <div class="col-md-10">
-                                    <input type="text" name="q" class="form-control" placeholder="搜索" />
+                                    <input type="text" name="search" class="form-control" placeholder="搜索" />
                                 </div>                                
                                 <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                             </div>                            
