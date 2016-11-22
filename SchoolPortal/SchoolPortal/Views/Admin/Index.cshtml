@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    var newsList1 = ViewBag.Informations1 as List<Information>;
+    var newsList2 = ViewBag.Informations2 as List<Information>;
+    var newsList3 = ViewBag.Informations3 as List<Information>;
+}
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-8">
+            <h2>通知公告</h2>
+            <table class="table table-hover">
+                @foreach (var item in newsList1)
+            {
+                    <tr>
+                        <td><a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
+                        <td>@item.DataCreated</td>
+                    </tr>
+                }
+            </table>
+
+            <h2>科教动态</h2>
+            <table class="table table-hover">
+                @foreach (var item in newsList2)
+            {
+                    <tr>
+                        <td><a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
+                        <td>@item.DataCreated</td>
+                    </tr>
+                }
+            </table>
+
+            <h2>综合新闻</h2>
+            <table class="table table-hover">
+                @foreach (var item in newsList3)
+            {
+                    <tr>
+                        <td><a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
+                        <td>@item.DataCreated</td>
+                    </tr>
+                }
+            </table>
+        </div>
+                
+    </div>
+    <div class="row" style="height:100px">
+
+    </div>
+
+</div>
+
+
