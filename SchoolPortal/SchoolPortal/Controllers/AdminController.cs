@@ -28,15 +28,47 @@ namespace SchoolPortal.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 添加新闻
+        /// </summary>
         public ActionResult AddSave(string type, string subject, string body)
         {
             var news = new Information();
             news.Type = type;
             news.Subject = subject;
             news.Body = body;
+            news.DataCreated = DateTime.Now;
 
             var db = new NewsDatabase();
             db.Informations.Add(news);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        /// <summary>
+        /// 编辑界面
+        /// </summary>
+        public ActionResult Edit(int id)
+        {
+            var db = new NewsDatabase();
+            var news = db.Informations.First(o => o.Id == id);
+            ViewData.Model = news;
+
+            return View();
+        }
+
+        /// <summary>
+        /// 保存编辑内容
+        /// </summary>
+        public ActionResult EditSave(int id, string subject, string body)
+        {
+            var db = new NewsDatabase();
+            var news = db.Informations.First(o => o.Id == id);
+
+            news.Subject = subject;
+            news.Body = body;
+
             db.SaveChanges();
 
             return RedirectToAction("Index");

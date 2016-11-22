@@ -47,6 +47,6 @@
         public string Type { get; set; } //类别
         public string Subject { get; set; } //标题
         public string Body { get; set; } //内容
-        public string DataCreated { get; set; } //发布时间
+        public DateTime DataCreated { get; set; } //发布时间
     }
 }
