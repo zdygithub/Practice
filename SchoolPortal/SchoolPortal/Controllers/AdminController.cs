@@ -25,8 +25,21 @@ namespace SchoolPortal.Controllers
             ViewBag.Informations2 = lst2.OrderByDescending(o => o.Id).ToList();
             ViewBag.Informations3 = lst3.OrderByDescending(o => o.Id).ToList();
 
-
             return View();
+        }
+
+        public ActionResult AddSave(string type, string subject, string body)
+        {
+            var news = new Information();
+            news.Type = type;
+            news.Subject = subject;
+            news.Body = body;
+
+            var db = new NewsDatabase();
+            db.Informations.Add(news);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
