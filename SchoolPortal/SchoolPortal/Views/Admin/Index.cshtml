@@ -19,7 +19,9 @@
                 @foreach (var item in newsList1)
                 {
                     <tr>
-                        <td>@Html.ActionLink("[编辑]", "Edit", new { id = item.Id }) |<a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
+                        <td>@Html.ActionLink("[ 编辑 ]", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("[ 删除 ]", "Delete", new { id = item.Id }) |
+                        <a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
                         <td>@item.DataCreated</td>
                     </tr>
                 }
@@ -30,7 +32,9 @@
                 @foreach (var item in newsList2)
                 {
                     <tr>
-                        <td>@Html.ActionLink("[编辑]", "Edit", new { id = item.Id }) |<a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
+                        <td>@Html.ActionLink("[ 编辑 ]", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("[ 删除 ]", "Delete", new { id = item.Id }) |
+                        <a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
                         <td>@item.DataCreated</td>
                     </tr>
                 }
@@ -41,7 +45,9 @@
                 @foreach (var item in newsList3)
                 {
                     <tr>
-                        <td>@Html.ActionLink("[编辑]", "Edit", new { id = item.Id }) |<a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
+                        <td>@Html.ActionLink("[ 编辑 ]", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("[ 删除 ]", "Delete", new { id = item.Id }) |
+                        <a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
                         <td>@item.DataCreated</td>
                     </tr>
                 }

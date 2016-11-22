@@ -73,5 +73,16 @@ namespace SchoolPortal.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int id)
+        {
+            var db = new NewsDatabase();
+            var news = db.Informations.First(o => o.Id == id);
+
+            db.Informations.Remove(news);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
