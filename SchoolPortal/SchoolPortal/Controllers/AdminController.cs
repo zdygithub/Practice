@@ -11,21 +11,29 @@ namespace SchoolPortal.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            var db = new NewsDatabase();
-            db.Database.CreateIfNotExists();//创建数据库
-            var lst = db.Informations.AsQueryable();
+            if(Request.Cookies["loginCookie"]!=null && Request.Cookies["loginCookie"].Value=="true")
+            {
+                var db = new NewsDatabase();
+                db.Database.CreateIfNotExists();//创建数据库
+                var lst = db.Informations.AsQueryable();
 
-            //不同种类的新闻列表
-            var lst1 = lst.Where(o => o.Type.Contains("通知公告")); 
-            var lst2 = lst.Where(o => o.Type.Contains("科教动态")); 
-            var lst3 = lst.Where(o => o.Type.Contains("综合新闻"));
+                //不同种类的新闻列表
+                var lst1 = lst.Where(o => o.Type.Contains("通知公告"));
+                var lst2 = lst.Where(o => o.Type.Contains("科教动态"));
+                var lst3 = lst.Where(o => o.Type.Contains("综合新闻"));
 
-            //进行降序排序
-            ViewBag.Informations1 = lst1.OrderByDescending(o => o.Id).ToList(); 
-            ViewBag.Informations2 = lst2.OrderByDescending(o => o.Id).ToList();
-            ViewBag.Informations3 = lst3.OrderByDescending(o => o.Id).ToList();
+                //进行降序排序
+                ViewBag.Informations1 = lst1.OrderByDescending(o => o.Id).ToList();
+                ViewBag.Informations2 = lst2.OrderByDescending(o => o.Id).ToList();
+                ViewBag.Informations3 = lst3.OrderByDescending(o => o.Id).ToList();
 
-            return View();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "CookieDemo", new { id = 3 });
+            }
+            
         }
 
         /// <summary>
@@ -51,11 +59,18 @@ namespace SchoolPortal.Controllers
         /// </summary>
         public ActionResult Edit(int id)
         {
-            var db = new NewsDatabase();
-            var news = db.Informations.First(o => o.Id == id);
-            ViewData.Model = news;
+            if (Request.Cookies["loginCookie"] != null && Request.Cookies["loginCookie"].Value == "true")
+            {
+                var db = new NewsDatabase();
+                var news = db.Informations.First(o => o.Id == id);
+                ViewData.Model = news;
 
-            return View();
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "CookieDemo", new { id = 3 });
+            }
         }
 
         /// <summary>
@@ -74,6 +89,9 @@ namespace SchoolPortal.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// 删除新闻
+        /// </summary>
         public ActionResult Delete(int id)
         {
             var db = new NewsDatabase();
