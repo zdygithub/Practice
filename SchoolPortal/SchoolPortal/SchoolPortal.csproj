@@ -278,6 +278,7 @@
     <Content Include="Views\CookieDemo\Login.cshtml" />
     <Content Include="Views\Home\Introduce.cshtml" />
     <Content Include="Views\Home\Faculties.cshtml" />
+    <Content Include="Views\Home\Teachers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
