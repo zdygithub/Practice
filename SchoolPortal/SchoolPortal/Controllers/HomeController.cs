@@ -31,10 +31,8 @@ namespace SchoolPortal.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Faculties()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
