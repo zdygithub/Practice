@@ -19,12 +19,13 @@
             {
                 <h2>@ViewBag.id</h2>
             }
-            <table class="table table-hover">
+            <table class="table table-hover" style="table-layout:fixed">@*表格里使用text-overflow后不能隐藏超出的文本的解决方法 -- 需要给table加上【table-layout:fixed】的css样式*@
                 @foreach (var item in newsList)
                 {
                     <tr>
-                        <td><a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
-                        <td>@item.DataCreated</td>
+                        @*隐藏超出的文本--{【white-space: nowrap】（设为一行显示，不换行）}， {【overflow:hidden】（隐藏超出的子标签）}， {【text-overflow:ellipsis】（隐藏超出的文本 显示为三个小点）}*@
+                        <td class="col-lg-9" style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis"><a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
+                        <td class="col-lg-3">@item.DataCreated</td>
                     </tr>
                 }
             </table>

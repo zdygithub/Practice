@@ -15,40 +15,47 @@
     <div class="row">
         <div class="col-md-8">
             <h3>通知公告</h3>
-            <table class="table table-hover">
+            <table class="table table-hover" style="table-layout:fixed">@*表格里使用text-overflow后不能隐藏超出的文本的解决方法 -- 需要给table加上【table-layout:fixed】的css样式*@
                 @foreach (var item in newsList1)
                 {
                     <tr>
-                        <td>@Html.ActionLink("[ 编辑 ]", "Edit", new { id = item.Id }) |
+                        @*隐藏超出的文本--{【white-space: nowrap】（设为一行显示，不换行）}， {【overflow:hidden】（隐藏超出的子标签）}， {【text-overflow:ellipsis】（隐藏超出的文本 显示为三个小点）}*@
+                        <td class="col-lg-9" style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis">
+                            @Html.ActionLink("[ 编辑 ]", "Edit", new { id = item.Id }) |
                             @Html.ActionLink("[ 删除 ]", "Delete", new { id = item.Id }) |
-                        <a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
-                        <td>@item.DataCreated</td>
+                            <a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a>
+                        </td>
+                        <td class="col-lg-3">@item.DataCreated</td>
                     </tr>
                 }
             </table>
 
             <h3>科教动态</h3>
-            <table class="table table-hover">
+            <table class="table table-hover" style="table-layout:fixed">
                 @foreach (var item in newsList2)
                 {
                     <tr>
-                        <td>@Html.ActionLink("[ 编辑 ]", "Edit", new { id = item.Id }) |
+                        <td class="col-lg-9" style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis">
+                            @Html.ActionLink("[ 编辑 ]", "Edit", new { id = item.Id }) |
                             @Html.ActionLink("[ 删除 ]", "Delete", new { id = item.Id }) |
-                        <a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
-                        <td>@item.DataCreated</td>
+                            <a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a>
+                        </td>
+                        <td class="col-lg-3">@item.DataCreated</td>
                     </tr>
                 }
             </table>
 
             <h3>综合新闻</h3>
-            <table class="table table-hover">
+            <table class="table table-hover" style="table-layout:fixed">
                 @foreach (var item in newsList3)
                 {
                     <tr>
-                        <td>@Html.ActionLink("[ 编辑 ]", "Edit", new { id = item.Id }) |
+                        <td class="col-lg-9" style="white-space: nowrap; overflow:hidden; text-overflow:ellipsis">
+                            @Html.ActionLink("[ 编辑 ]", "Edit", new { id = item.Id }) |
                             @Html.ActionLink("[ 删除 ]", "Delete", new { id = item.Id }) |
-                        <a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a></td>
-                        <td>@item.DataCreated</td>
+                            <a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a>
+                        </td>
+                        <td class="col-lg-3">@item.DataCreated</td>
                     </tr>
                 }
             </table>
