@@ -1,9 +1,12 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    var newsList1 = ViewBag.Informations1 as List<Information>;
+    var newsList2 = ViewBag.Informations2 as List<Information>;
+    var newsList3 = ViewBag.Informations3 as List<Information>;
 }
 
 
-@*
+
 <div class="container-fluid">
     <div id="carousel-example-generic" class="carousel slide">
         <ol class="carousel-indicators">
@@ -52,36 +55,99 @@
         </a>
     </div>
 </div>
-*@
+
 
 <div class="container">
-    <div class="jumbotron">
+    @*<div class="jumbotron">
         <h1>ASP.NET</h1>
         <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
         <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
-
+    </div>*@
+    <div style="height:50px;"></div>
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            <div class="panel">
+                <div class="panel-heading" style="border-bottom:2px solid #e1e1e1">
+                    <img src="~/Content/img/sy.png" style="width: 22px;height: 22px;position: relative;top: -3px;left: -4px;"/>
+                    <span style="font-size: 20px; font-weight: bold;">
+                        通知公告
+                        <small style="font-size: 16px; font-weight: normal; color: #c4c4c4;">Top Notices</small>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    @foreach (var item in newsList1)
+                    {
+                        <div class="row" >
+                            <div class="col-md-10" style="padding: 8px; white-space: nowrap; overflow:hidden; text-overflow:ellipsis">@*隐藏超出的文本--{【white-space: nowrap】（设为一行显示，不换行）}， {【overflow:hidden】（隐藏超出的子标签）}， {【text-overflow:ellipsis】（隐藏超出的文本 显示为三个小点）}*@
+                                <a style="color:#000000;" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a>
+                            </div>
+                            <div class="col-md-2" style="padding: 8px;">
+                                @item.DataCreated.ToString("MM-dd")
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div style="border-top:2px solid #e1e1e1; padding-top: 8px;">
+                    <p><a href="@Url.Action("Index", "News",new { id= "通知公告" })">更多 &raquo;</a></p>
+                </div>
+            </div>           
         </div>
         <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            <div class="panel">
+                <div class="panel-heading" style="border-bottom:2px solid #e1e1e1">
+                    <img src="~/Content/img/sy.png" style="width: 22px;height: 22px;position: relative;top: -3px;left: -4px;" />
+                    <span style="font-size: 20px; font-weight: bold;">
+                        科教动态
+                        <small style="font-size: 16px; font-weight: normal; color: #c4c4c4;">Science Updates</small>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    @foreach (var item in newsList2)
+                    {
+                        <div class="row">
+                            <div class="col-md-10" style="padding: 8px; white-space: nowrap; overflow:hidden; text-overflow:ellipsis">
+                                <a style="color:#000000" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a>
+                            </div>
+                            <div class="col-md-2" style="padding: 8px;">
+                                @item.DataCreated.ToString("MM-dd")
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div style="border-top:2px solid #e1e1e1; padding-top: 8px;">
+                    <p><a href="@Url.Action("Index", "News",new { id= "科教动态" })">更多 &raquo;</a></p>
+                </div>  
+            </div>                      
         </div>
         <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            <div class="panel">
+                <div class="panel-heading" style="border-bottom:2px solid #e1e1e1">
+                    <img src="~/Content/img/sy.png" style="width: 22px;height: 22px;position: relative;top: -3px;left: -4px;" />
+                    <span style="font-size: 20px; font-weight: bold;">
+                        综合新闻
+                        <small style="font-size: 16px; font-weight: normal; color: #c4c4c4;">Fudan News</small>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    @foreach (var item in newsList3)
+                    {
+                        <div class="row">
+                            <div class="col-md-10" style="padding: 8px; white-space: nowrap; overflow:hidden; text-overflow:ellipsis">
+                                <a style="color:#000000;" href="@Url.Action("Show", "News", new { id=item.Id })">@item.Subject</a>
+                            </div>
+                            <div class="col-md-2" style="padding: 8px;">
+                                @item.DataCreated.ToString("MM-dd")
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div style="border-top:2px solid #e1e1e1; padding-top: 8px;">
+                    <p><a href="@Url.Action("Index", "News",new { id= "综合新闻" })">更多 &raquo;</a></p>
+                </div>    
+            </div>                       
         </div>
     </div>
+    <div style="height:50px;"></div>
 </div>
 
 <div class="container-fluid">
