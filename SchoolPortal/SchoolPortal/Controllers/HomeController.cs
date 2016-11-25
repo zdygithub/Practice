@@ -26,10 +26,8 @@ namespace SchoolPortal.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
+        public ActionResult Introduce()
+        {            
             return View();
         }
 
