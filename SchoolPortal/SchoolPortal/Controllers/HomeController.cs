@@ -40,5 +40,10 @@ namespace SchoolPortal.Controllers
         {
             return View();
         }
+
+        public ActionResult Students()
+        {
+            return View();
+        }
     }
 }
